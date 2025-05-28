@@ -7,6 +7,7 @@ export default function Employees() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
+    lastName: '',
     position: '',
     photo: '',
   });

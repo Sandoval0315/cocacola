@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { FaPlus, FaTimes, FaEdit, FaTrash } from 'react-icons/fa';
-import './product.css';
+import React, { useState, useEffect } from "react";
+import { FaPlus, FaTimes, FaEdit, FaTrash } from "react-icons/fa";
+import "./product.css";
 
 export default function Product() {
   const [products, setProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    description: '',
+    name: "",
+    description: "",
     price: 0,
     stock: 0,
-    image: ''
+    image: "",
   });
   const [editingId, setEditingId] = useState(null);
 
@@ -21,11 +21,11 @@ export default function Product() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/products');
+      const response = await fetch("http://localhost:4000/api/products");
       const data = await response.json();
       setProducts(data);
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.error("Error fetching products:", error);
     }
   };
 
@@ -33,11 +33,11 @@ export default function Product() {
     setIsModalOpen(!isModalOpen);
     if (!isModalOpen) {
       setFormData({
-        name: '',
-        description: '',
+        name: "",
+        description: "",
         price: 0,
         stock: 0,
-        image: ''
+        image: "",
       });
       setEditingId(null);
     }
@@ -50,28 +50,28 @@ export default function Product() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const url = editingId 
+      const url = editingId
         ? `http://localhost:4000/api/products/${editingId}`
-        : 'http://localhost:4000/api/products';
-      
-      const method = editingId ? 'PUT' : 'POST';
-      
+        : "http://localhost:4000/api/products";
+
+      const method = editingId ? "PUT" : "POST";
+
       const response = await fetch(url, {
         method,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-      
+
       if (response.ok) {
         fetchProducts();
         toggleModal();
       }
     } catch (error) {
-      console.error('Error saving product:', error);
+      console.error("Error saving product:", error);
     }
   };
 
@@ -81,7 +81,7 @@ export default function Product() {
       description: product.description,
       price: product.price,
       stock: product.stock,
-      image: product.image || ''
+      image: product.image || "",
     });
     setEditingId(product._id);
     setIsModalOpen(true);
@@ -90,14 +90,14 @@ export default function Product() {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(`http://localhost:4000/api/products/${id}`, {
-        method: 'DELETE'
+        method: "DELETE",
       });
-      
+
       if (response.ok) {
         fetchProducts();
       }
     } catch (error) {
-      console.error('Error deleting product:', error);
+      console.error("Error deleting product:", error);
     }
   };
 
@@ -137,7 +137,7 @@ export default function Product() {
             <button className="close-button" onClick={toggleModal}>
               <FaTimes />
             </button>
-            <h3>{editingId ? 'Editar Producto' : 'Nuevo Producto'}</h3>
+            <h3>{editingId ? "Editar Producto" : "Nuevo Producto"}</h3>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
@@ -181,7 +181,7 @@ export default function Product() {
                 onChange={handleChange}
               />
               <button type="submit" className="submit-button">
-                {editingId ? 'Actualizar' : 'Guardar'}
+                {editingId ? "Actualizar" : "Guardar"}
               </button>
             </form>
           </div>
