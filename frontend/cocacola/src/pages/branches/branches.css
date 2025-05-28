@@ -1,0 +1,123 @@
+.branches-page {
+    padding: 2rem;
+    font-family: 'Quicksand', sans-serif;
+    color: #222;
+  }
+  
+  .branches-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .branches-header h2 {
+    color: #F40009;
+    font-size: 2rem;
+  }
+  
+  .add-button {
+    background-color: #F40009;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.3s ease;
+  }
+  
+  .add-button:hover {
+    background-color: #c10006;
+  }
+  
+  .map-container {
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .branches-list {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .branch-card {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 1rem;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .branch-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .branch-card h3 {
+    margin-bottom: 0.25rem;
+    color: #F40009;
+  }
+  
+  .branch-card p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Modal reutilizable */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    z-index: 1000;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    animation: scaleIn 0.3s ease;
+  }
+  
+  @keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  .modal h3 {
+    margin-bottom: 1rem;
+    color: #F40009;
+  }
+  
+  .modal input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+  }
+  
+  
